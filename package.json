@@ -1,7 +1,7 @@
 {
-  "name": "node-typescript-boilerplate",
-  "version": "0.0.0",
-  "description": "Minimalistic boilerplate to quick-start Node.js development in TypeScript.",
+  "name": "gimme-squirrels",
+  "version": "0.0.1",
+  "description": "Because everyone needs a list of squirrels to use occasionally",
   "engineStrict": true,
   "engines": {
     "node": ">= 8.9.0"
@@ -27,9 +27,10 @@
     "test-only": "jest --coverage",
     "test:watch": "jest --watch"
   },
-  "author": "Jakub Synowiec <github@jakubsynowiec.info>",
+  "author": "Chris Sprance <chrissprance@gmail.com>",
   "license": "APLv2",
   "dependencies": {
-    "tslib": "~1.9.0"
+    "tslib": "~1.9.0",
+    "unique-random-array": "^1.0.1"
   }
 }
