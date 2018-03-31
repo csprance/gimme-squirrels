@@ -1,25 +1,88 @@
-export const squirrelList = [
-  'http://shipitsquirrel.github.io/images/ship%20it%20squirrel.png',
-  'http://images.cheezburger.com/completestore/2011/11/2/aa83c0c4-2123-4bd3-8097-966c9461b30c.jpg',
-  'http://images.cheezburger.com/completestore/2011/11/2/46e81db3-bead-4e2e-a157-8edd0339192f.jpg',
-  'http://28.media.tumblr.com/tumblr_lybw63nzPp1r5bvcto1_500.jpg',
-  'http://i.imgur.com/DPVM1.png',
-  'http://d2f8dzk2mhcqts.cloudfront.net/0772_PEW_Roundup/09_Squirrel.jpg',
-  'http://www.cybersalt.org/images/funnypictures/s/supersquirrel.jpg',
-  'http://www.zmescience.com/wp-content/uploads/2010/09/squirrel.jpg',
-  'http://img70.imageshack.us/img70/4853/cutesquirrels27rn9.jpg',
-  'http://img70.imageshack.us/img70/9615/cutesquirrels15ac7.jpg',
-  'https://dl.dropboxusercontent.com/u/602885/github/sniper-squirrel.jpg',
-  'http://1.bp.blogspot.com/_v0neUj-VDa4/TFBEbqFQcII/AAAAAAAAFBU/E8kPNmF1h1E/s640/squirrelbacca-thumb.jpg',
-  'https://dl.dropboxusercontent.com/u/602885/github/soldier-squirrel.jpg',
-  'https://dl.dropboxusercontent.com/u/602885/github/squirrelmobster.jpeg'
-];
-export const single = (): string =>
-  squirrelList[Math.floor(Math.random() * squirrelList.length)];
-export const many = (amount: number = 5): string[] =>
-  squirrelList[Math.floor(Math.random() * squirrelList.length)];
+import * as crypto from 'crypto';
 
-export default {
-  many,
-  single
-};
+export const squirrelList = [
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/1.jpeg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/1.jpeg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/10.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/11.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/12.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/13.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/14.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/15.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/16.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/17.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/18.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/19.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/2.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/20.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/21.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/22.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/23.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/24.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/25.png',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/26.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/27.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/28.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/3.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/4.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/5.png',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/6.jpg',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/7.gif',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/8.png',
+  'https://raw.githubusercontent.com/csprance/gimme-squirrels/master/src/images/9.jpg'
+];
+/**
+ * Get a single squirrel
+ * @returns {string}
+ */
+export const single = (): string =>
+  squirrelList[cryptoRandomNumber(0, squirrelList.length)];
+
+/**
+ * Get a number of squirrels in an Array (may contain duplicates)
+ * @param {number} amount
+ * @returns {string[]}
+ */
+export const many = (amount: number = 5): string[] =>
+  Array(amount)
+    .fill(' ')
+    .map(single);
+
+/**
+ * Generating random numbers in specific range using crypto.randomBytes from crypto library
+ *  Maximum available range is 281474976710655 or 256^6-1
+ *  Maximum number for range must be equal or less than Number.MAX_SAFE_INTEGER (usually 9007199254740991)
+ *  Usage examples:
+ *  cryptoRandomNumber(0, 350);
+ *  cryptoRandomNumber(556, 1250425);
+ *  cryptoRandomNumber(0, 281474976710655);
+ *  cryptoRandomNumber((Number.MAX_SAFE_INTEGER-281474976710655), Number.MAX_SAFE_INTEGER);
+ * @param {number} minimum
+ * @param {number} maximum
+ * @returns {number}
+ */
+function cryptoRandomNumber(minimum: number, maximum: number): number {
+  const distance = maximum - minimum;
+  if (minimum >= maximum) {
+    return 0;
+  } else if (distance > 281474976710655) {
+    return 0;
+  } else if (maximum > Number.MAX_SAFE_INTEGER) {
+    return 0;
+  } else {
+    const maxBytes = 6;
+    const maxDec = 281474976710656;
+    const randBytes = parseInt(
+      crypto.randomBytes(maxBytes).toString('hex'),
+      16
+    );
+    let result = Math.floor(
+      randBytes / maxDec * (maximum - minimum + 1) + minimum
+    );
+    if (result > maximum) {
+      result = maximum;
+    }
+
+    return result;
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "gimme-squirrels",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Because everyone needs a list of squirrels to use occasionally",
   "engineStrict": true,
   "engines": {
@@ -14,10 +14,12 @@
     "ts-jest": "~22.4.2",
     "tslint": "~5.9.1",
     "tslint-microsoft-contrib": "~5.0.3",
+    "ts-node": "^5.0.1",
     "tsutils": "~2.24.0",
     "typescript": "~2.8.1"
   },
   "scripts": {
+    "repl": "ts-node ./repl.ts",
     "clean": "rimraf coverage build tmp",
     "build": "tsc -p tsconfig.release.json",
     "watch": "tsc -w -p tsconfig.release.json",
@@ -31,6 +33,5 @@
   "license": "APLv2",
   "dependencies": {
     "tslib": "~1.9.0",
-    "unique-random-array": "^1.0.1"
   }
 }
