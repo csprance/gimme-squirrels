@@ -1,6 +1,8 @@
 {
   "name": "gimme-squirrels",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "main": "./build/src/main.js",
+  "types": "./src/main.d.ts",
   "description": "Because everyone needs a list of squirrels to use occasionally",
   "engineStrict": true,
   "engines": {
@@ -32,6 +34,6 @@
   "author": "Chris Sprance <chrissprance@gmail.com>",
   "license": "APLv2",
   "dependencies": {
-    "tslib": "~1.9.0",
+    "tslib": "~1.9.0"
   }
 }
